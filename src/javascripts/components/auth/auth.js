@@ -6,6 +6,7 @@ import googleImage from './google-button.png';
 const signMeIn = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider);
+  console.error('Your sign in function is loading?');
 };
 
 const authBuilder = () => {
