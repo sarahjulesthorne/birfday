@@ -1,9 +1,16 @@
 import util from '../../helpers/utils';
 
-const birfdayBuilder = () => {
-  let domString = '';
-  domString += '<h3>Birfday<h3>';
-  util.printToDom('birfday', domString);
+import birthdayData from '../../helpers/data/birthday-data';
+
+const birfdayBuilder = (uid) => {
+  birthdayData.getBirthdayByUid(uid)
+    .then((birthday) => {
+      let domString = `<h1>${birthday.date}</h1>`;
+      domString += `<img src="${birthday.imageUrl}" alt="birthday location"/>`;
+      domString += `<h2>${birthday.location} At ${birthday.time}<h2>`;
+      util.printToDom('event', domString);
+    })
+    .catch(error => console.error('Could not get birthday', error));
 };
 
 export default {
