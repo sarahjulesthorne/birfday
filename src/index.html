@@ -22,7 +22,7 @@
                        <a href="#" id="navbar-button-auth" class="nav-link">Authentication</a>
                      </li>
                    <li class="nav-item">
-                       <a  href="#" id="navbar-button-birfday" class="nav-link hide">My Birfday</a>
+                       <a href="#" id="navbar-button-birfday" class="nav-link hide">My Birfday</a>
                      </li>
                    <li class="nav-item">
                        <button type="button" id="navbar-button-logout" class="nav-link hide">Logout</button>
@@ -40,7 +40,21 @@
   </div>
   <!-- End of birthday div -->
 
-
+  <!-- Start of div for holding form for entering new friend info -->
+  <div id="newFriends" class="hide">
+    <form class="col-6 offset-3">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+      </div>
+      <button type="submit" id="saveNewFriend" class="btn btn-primary">Add Friend</button>
+    </form>
+  </div>
+  <!-- End of new friends div -->
 
 </body>
 
