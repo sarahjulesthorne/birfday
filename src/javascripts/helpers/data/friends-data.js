@@ -10,6 +10,8 @@ const getfriendsByUid = uid => new Promise((resolve, reject) => {
       const friends = [];
       Object.keys(friendsResults).forEach((friendsId) => {
         friendsResults[friendsId].id = friendsId;
+        friendsResults[friendsId].rsvpId = '';
+        friendsResults[friendsId].statusId = 'status1';
         friends.push(friendsResults[friendsId]);
       });
       resolve(friends);
@@ -19,7 +21,10 @@ const getfriendsByUid = uid => new Promise((resolve, reject) => {
 
 const addFriend = friendObject => axios.post(`${firebaseUrl}/friends.json`, friendObject);
 
+const deleteFriend = friendId => axios.delete(`${firebaseUrl}/friends/${friendId}.json`);
+
 export default {
   addFriend,
   getfriendsByUid,
+  deleteFriend,
 };
