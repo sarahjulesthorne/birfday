@@ -44,7 +44,7 @@ const radioButtonEvent = (e) => {
   console.error(rsvpId);
   const rsvp = {
     birthdayId: e.target.closest('table').id,
-    friendId: e.target.id.split('.', [1]),
+    friendId: e.target.id.split('.')[1],
     statusId: e.target.value,
   };
   if (rsvpId) {
@@ -91,17 +91,16 @@ const showFriends = (friends, birthday) => {
     domString += `<td>${friend.name}</td>`;
     domString += `<td>${friend.email}</td>`;
     domString += `<td id=${friend.rsvpId}>`;
-    console.error(friend);
     domString += '<div class="custom-control custom-radio custom-control-inline">';
-    domString += `<input type="radio" value="${friend.id}" id="radio1.${friend.id}" name="radio-buttons_${friend.id}" class="radio custom-control-input" ${friend.statusId === 'status2' ? 'checked' : ''}>`; // eslint-disable-line max-len
+    domString += `<input type="radio" value="status2" id="radio1.${friend.id}" name="radio-buttons_${friend.id}" class="radio custom-control-input" ${friend.statusId === 'status2' ? 'checked' : ''}>`; // eslint-disable-line max-len
     domString += `<label class="custom-control-label" for="radio1.${friend.id}">Yes</label>`;
     domString += '</div>';
     domString += '<div class="custom-control custom-radio custom-control-inline">';
-    domString += `<input type="radio" value="${friend.id}" id="radio2.${friend.id}" name="radio-buttons_${friend.id}" class="radio custom-control-input" ${friend.statusId === 'status3' ? 'checked' : ''}>`; // eslint-disable-line max-len
+    domString += `<input type="radio" value="status3" id="radio2.${friend.id}" name="radio-buttons_${friend.id}" class="radio custom-control-input" ${friend.statusId === 'status3' ? 'checked' : ''}>`; // eslint-disable-line max-len
     domString += `<label class="custom-control-label" for="radio2.${friend.id}">No</label>`;
     domString += '</div>';
     domString += '<div class="custom-control custom-radio custom-control-inline">';
-    domString += `<input type="radio" value="${friend.id}" id="radio3.${friend.id}" name="radio-buttons_${friend.id}" class="radio custom-control-input" ${friend.statusId === 'status1' ? 'checked' : ''}>`; // eslint-disable-line max-len
+    domString += `<input type="radio" value="status1" id="radio3.${friend.id}" name="radio-buttons_${friend.id}" class="radio custom-control-input" ${friend.statusId === 'status1' ? 'checked' : ''}>`; // eslint-disable-line max-len
     domString += `<label class="custom-control-label" for="radio3.${friend.id}">Unknown</label>`;
     domString += '</div>';
     domString += '</td>';
@@ -123,7 +122,7 @@ const getFriends = (uid) => {
           rsvpData.getRsvpsByBirthdayId(birthday.id)
             .then((rsvps) => {
               const finalFriends = smash.friendRsvps(friends, rsvps);
-              console.error('friendsArray', finalFriends);
+              console.error('friends array', finalFriends);
               showFriends(finalFriends, birthday.id);
             });
         });
